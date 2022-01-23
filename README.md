@@ -5,72 +5,34 @@ The Image Analysis is a simple project using Aws Lambda, AWS Rekognition and AWS
 ## Usage
 
 ### Deployment
-
 In order to deploy the example, you need to run the following command:
-
 ```
 $ serverless deploy
 ```
 
-After running deploy, you should see output similar to:
+### Local development
 
-```bash
-Serverless: Packaging service...
-Serverless: Excluding development dependencies...
-Serverless: Creating Stack...
-Serverless: Checking Stack create progress...
-........
-Serverless: Stack create finished...
-Serverless: Uploading CloudFormation file to S3...
-Serverless: Uploading artifacts...
-Serverless: Uploading service aws-node.zip file to S3 (711.23 KB)...
-Serverless: Validating template...
-Serverless: Updating Stack...
-Serverless: Checking Stack update progress...
-.................................
-Serverless: Stack update finished...
-Service Information
-service: aws-node
-stage: dev
-region: us-east-1
-stack: aws-node-dev
-resources: 6
-functions:
-  api: aws-node-dev-hello
-layers:
-  None
-```
-
-### Invocation
+  
 
 After successful deployment, you can invoke the deployed function by using the following command:
 
+  
+
 ```bash
-serverless invoke --function hello
+
+sls invoke local -f image-analisys --path request.json
+
 ```
 
 Which should result in response similar to the following:
+
+  
 
 ```json
+
 {
     "statusCode": 200,
-    "body": "{\n  \"message\": \"Go Serverless v2.0! Your function executed successfully!\",\n  \"input\": {}\n}"
+    "body": "A imagem tem 98.67% de ser do tipo Cão\n98.67% de ser do tipo canino\n98.67% de ser do tipo animal de estimação\n98.67% de ser do tipo animal\n98.67% de ser do tipo mamífero\n95.29% de ser do tipo buldogue\n88.34% de ser do tipo buldogue francês"
 }
-```
 
-### Local development
-
-You can invoke your function locally by using the following command:
-
-```bash
-serverless invoke local --function hello
-```
-
-Which should result in response similar to the following:
-
-```
-{
-    "statusCode": 200,
-    "body": "{\n  \"message\": \"Go Serverless v2.0! Your function executed successfully!\",\n  \"input\": \"\"\n}"
-}
 ```
