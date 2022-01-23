@@ -10,7 +10,7 @@ class Handler {
   async detectImageLabels(buffer) {
     const result = await this.rekoSvc.detectLabels({
       Image: {
-        Bytes: buffer, 
+        Bytes: buffer,
       }
     }).promise();
 
